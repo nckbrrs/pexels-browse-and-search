@@ -1,5 +1,5 @@
 // Schema for a Photo object from Pexels
-type Photo = {
+export type Photo = {
     id: number;
     width: number;
     height: number;

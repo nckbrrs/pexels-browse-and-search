@@ -4,6 +4,7 @@ import Pagination from './pagination';
 import 'twin.macro';
 import LinkIcon from './icons/link';
 import PersonIcon from './icons/person';
+import { Photo } from '../types/photo';
 
 interface PhotoViewerProps {
     photos: Photo[]
