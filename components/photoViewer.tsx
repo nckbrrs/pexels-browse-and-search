@@ -99,8 +99,8 @@ const PhotoWithDetails: React.FC<PhotoWithDetailsProps> = ({src, photographerNam
                     <PersonIcon/>
                 </Row>
                 <a href={photographerUrl} target="_blank" rel="noopener noreferrer">
-                    <TextPrimary tw="text-xs font-semibold cursor-pointer duration-100 hover:font-bold hover:text-black dark:hover:text-white">
-                        {photographerName.length > 16 ? `${photographerName.slice(0, 16)}...` : photographerName}
+                    <TextPrimary tw="text-xs w-16 lg:w-full font-semibold cursor-pointer duration-100 hover:font-bold hover:text-black dark:hover:text-white truncate">
+                        {photographerName}
                     </TextPrimary>
                 </a>
             </Row>
@@ -154,7 +154,7 @@ const PhotoContainer = styled(Col)<{first?: boolean}>(({first}) => [
         rounded-lg
         flex-nowrap
         pb-4
-        space-y-1
+        md:space-y-1
     `,
     first && tw`
         w-full
@@ -176,6 +176,7 @@ const StyledImg = styled.img(() => [
 const StyledImgAnchor = styled.a(() => [
     tw`
         h-full
+        // mb-1
         duration-200
         hover:-translate-y-1
     `

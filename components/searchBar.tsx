@@ -7,7 +7,7 @@ const StyledInput = styled.input(() => [
     tw`
         w-full
         p-4
-        pl-8
+        md:pl-8
         text-sm
         text-[#212121]
         border
