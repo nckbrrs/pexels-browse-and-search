@@ -5,7 +5,8 @@ import 'twin.macro';
 import SearchBar from '../components/searchBar';
 import PhotoViewer from '../components/photoViewer';
 
-const SERVER_BASE_PATH = 'https://pexels-project.vercel.app/api'
+const runAgainstLocalApi = false;
+const SERVER_BASE_PATH = runAgainstLocalApi ? 'http://localhost:3000' : 'https://pexels-project.vercel.app/api'
 
 // Home page
 const Home: React.FC = () => {
@@ -38,11 +39,16 @@ const Home: React.FC = () => {
   }, [])
 
   const fetchCurated = async () => {
+    let gotError = false;
     const fetchResponse = await fetch(`${SERVER_BASE_PATH}/curated`, {
       method: 'GET',
-    }).then((res) => res.json())
-    setCuratedResultInSessionStorage(sessionStorage, fetchResponse);
-    setPhotosData(fetchResponse);
+    }).then((res) => res.json()).catch((err) => {gotError = true;})
+
+    if (!gotError) {
+      setCuratedResultInSessionStorage(sessionStorage, fetchResponse);
+      setPhotosData(fetchResponse);
+    }
+    
     setLoadingResults(false);
   }
 
@@ -50,10 +56,7 @@ const Home: React.FC = () => {
     let gotError = false;
     const fetchResponse = await fetch(`${SERVER_BASE_PATH}/search?` + new URLSearchParams({ searchQuery }), {
       method: 'GET',
-    }).then((res) => res.json()).catch((err) => {
-      console.log(err);
-      gotError = true;
-    });
+    }).then((res) => res.json()).catch((err) => {gotError = true;});
 
     if (!gotError) {
       setSearchResultInSessionStorage(sessionStorage, searchQuery, fetchResponse);
@@ -89,7 +92,6 @@ const Home: React.FC = () => {
       }
 
       setCurrentPage(0);
-      // sessionStorage?.setItem('pexels@@@currentPage', '0')
       setCurrentPageInSessionStorage(sessionStorage, currentPage)
   }
 
@@ -106,7 +108,6 @@ const Home: React.FC = () => {
             currentPage={currentPage}
             setCurrentPage={(p) => {
               setCurrentPage(p); 
-              // sessionStorage?.setItem('pexels@@@currentPage', p.toString())
               setCurrentPageInSessionStorage(sessionStorage, p)
             }}
           />

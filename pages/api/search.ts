@@ -9,7 +9,7 @@ export default async function handler (req: NextApiRequest, res: NextApiResponse
         optionsSuccessStatus: 200,
     });
 
-    const fetchResponse = await fetch(`${process.env.PEXELS_BASE_PATH}/search?query=${req.query.searchQuery}&per_page=80`, {
+    const fetchResponse = await fetch(`https://api.pexels.com/v1/search?query=${req.query.searchQuery}&per_page=80`, {
         method: 'GET',
         headers: {'Authorization': process.env.PEXELS_API_KEY || ''},
     }).then((res) => res.json());
