@@ -5,6 +5,7 @@ import 'twin.macro';
 import LinkIcon from './icons/link';
 import PersonIcon from './icons/person';
 import { Photo } from '../types/photo';
+import { useState } from 'react';
 
 interface PhotoViewerProps {
     photos: Photo[]
@@ -83,10 +84,15 @@ interface PhotoWithDetailsProps {
 }
 
 const PhotoWithDetails: React.FC<PhotoWithDetailsProps> = ({src, photographerName, photographerUrl, originalUrl: photoOriginalUrl, first }) => {
+    const [hasLoaded, setHasLoaded] = useState(false);
+    
     return (
         <PhotoContainer first={first}>
-            <StyledImgAnchor href={photographerUrl} target="_blank" rel="noopener noreferrer">
-                <StyledImg src={src}/>
+            <StyledImgAnchor href={photographerUrl} target="_blank" rel="noopener noreferrer" tw="relative">
+                <StyledImg src={src} loading="eager" onLoad={() => setHasLoaded(true)}/>
+                {!hasLoaded && 
+                    <PlaceholderImg tw="z-10 absolute top-0 left-0"/>
+                }
             </StyledImgAnchor>
             <Row tw="justify-start flex-nowrap items-center w-full h-8">
                 <Row tw="w-8 h-4 fill-gray-400">
