@@ -8,8 +8,20 @@ import PhotoViewer from '../components/photoViewer';
 const runAgainstLocalApi = false;
 const SERVER_BASE_PATH = runAgainstLocalApi ? 'http://localhost:3000' : 'https://pexels-project.vercel.app/api'
 
+export async function getStaticProps(): Promise<any> {
+  const fetchResponse = await fetch(`${SERVER_BASE_PATH}/curated`, {
+    method: 'GET',
+  }).then((res) => res.json())
+
+  return {
+    props: {
+      initialData: fetchResponse
+    }
+  }
+}
+
 // Home page
-const Home: React.FC = () => {
+const Home: React.FC<{initialData: any}> = ({initialData}) => {
   const [photosData, setPhotosData] = useState<any>(null);
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [loadingResults, setLoadingResults] = useState<boolean>(false);
@@ -23,12 +35,17 @@ const Home: React.FC = () => {
         setPhotosData(locallyStoredSearchQueryResult)
       }
     } else {
-      const locallyStoredCuratedResult = getCuratedResultFromSessionStorage(sessionStorage);
-      if (locallyStoredCuratedResult) {
-        setPhotosData(locallyStoredCuratedResult)
+      if (initialData) {
+        console.log(initialData);
+        setPhotosData(initialData)
       } else {
-        setLoadingResults(true);
-        fetchCurated();
+        const locallyStoredCuratedResult = getCuratedResultFromSessionStorage(sessionStorage);
+        if (locallyStoredCuratedResult) {
+          setPhotosData(locallyStoredCuratedResult)
+        } else {
+          setLoadingResults(true);
+          fetchCurated();
+        }
       }
     }
 
