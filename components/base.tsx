@@ -33,9 +33,10 @@ export const ColCentered = styled(Col)(() => [
 
 export const TextPrimary = styled.p(() => [
     tw`
-        font-primary
+        font-sans
         text-base
         font-normal
-        text-primary
+        text-gray-900
+        dark:text-white
     `
 ])

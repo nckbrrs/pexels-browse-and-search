@@ -1,6 +1,7 @@
 import 'twin.macro'
 import styledImport, { CSSProp, css as cssImport } from 'styled-components'
 
+// Provided by twin.macro
 declare module 'twin.macro' {
   // The styled and css imports
   const styled: typeof styledImport
