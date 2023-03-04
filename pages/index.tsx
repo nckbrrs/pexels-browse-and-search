@@ -5,8 +5,7 @@ import 'twin.macro';
 import SearchBar from '../components/searchBar';
 import PhotoViewer from '../components/photoViewer';
 
-// const SERVER_BASE_PATH = 'https://pexels-project.vercel.app/api'
-const SERVER_BASE_PATH = 'http://localhost:3000/api'
+const SERVER_BASE_PATH = 'https://pexels-project.vercel.app/api'
 
 // Home page
 const Home: React.FC = () => {
