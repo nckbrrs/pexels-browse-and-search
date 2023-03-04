@@ -47,11 +47,19 @@ const Home: React.FC = () => {
   }
 
   const fetchBySearchQuery = async (searchQuery: string) => {
+    let gotError = false;
     const fetchResponse = await fetch(`${SERVER_BASE_PATH}/search?` + new URLSearchParams({ searchQuery }), {
       method: 'GET',
-    }).then((res) => res.json());
-    setSearchResultInSessionStorage(sessionStorage, searchQuery, fetchResponse);
-    setPhotosData(fetchResponse);
+    }).then((res) => res.json()).catch((err) => {
+      console.log(err);
+      gotError = true;
+    });
+
+    if (!gotError) {
+      setSearchResultInSessionStorage(sessionStorage, searchQuery, fetchResponse);
+      setPhotosData(fetchResponse);
+    } 
+    
     setLoadingResults(false);
   }
 
@@ -110,11 +118,11 @@ const Home: React.FC = () => {
 export default Home;
 
 const setSearchResultInSessionStorage = (sessionStorage: Storage | null, query: string, data: any): void => {
-  sessionStorage?.setItem(`pexels:${query.replace(' ', '-')}`, JSON.stringify(data));
+  sessionStorage?.setItem(`pexels:${query.toLowerCase().replace(' ', '-')}`, JSON.stringify(data));
 }
 
 const getSearchResultFromSessionStorage = (sessionStorage: Storage | null, query: string): any => {
-  const resultFromStorage = sessionStorage?.getItem(`pexels:${query.replace(' ', '-')}`);
+  const resultFromStorage = sessionStorage?.getItem(`pexels:${query.toLowerCase().replace(' ', '-')}`);
   if (resultFromStorage) {
     return JSON.parse(resultFromStorage);
   }
@@ -149,7 +157,7 @@ const getCurrentPageFromSessionStorage = (sessionStorage: Storage | null) => {
 }
 
 const setLatestSearchQueryInSessionStorage = (qsessionStorage: Storage | null, query: string) => {
-  sessionStorage?.setItem(`pexels@@@latestSearchQuery`, query);
+  sessionStorage?.setItem(`pexels@@@latestSearchQuery`, query.toLowerCase().replace(' ', '-'));
 
 }
 
