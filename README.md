@@ -27,7 +27,9 @@ _Note: if you are familiar with React/Next applications, this will be trivial_
 
 # Usage
 
-Download the repository, navigate to the folder's root directory, and run `npm run blastoff` to install dependencies and run the app locally. 
+Download the repository, navigate to the folder's root directory, and run `npm run blastoff` to install dependencies and run the app locally.
+
+Visit `localhost:3000` in your browser to view the app.
 
 Note: Both the frontend and the api endpoints will be running locally, but the frontend will actually be pointed to the deployed version of this app's API. Otherwise, I would have to share my Pexels API token with you (and I don't want to do that).
 
