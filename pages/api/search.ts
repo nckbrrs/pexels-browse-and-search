@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import NextCors from 'nextjs-cors';
 
+// Call Pexels Search API with provided searchQuery string that user typed into search box
 export default async function handler (req: NextApiRequest, res: NextApiResponse) {
     await NextCors(req, res, {
         methods: ['GET'],

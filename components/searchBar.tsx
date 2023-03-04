@@ -1,7 +1,7 @@
 import tw, { styled } from 'twin.macro';
-import { Row, RowCentered, TextPrimary } from './base';
+import { Row  } from './base';
 import 'twin.macro';
-import { FormEvent, useState } from 'react';
+import { FormEvent } from 'react';
 
 const StyledInput = styled.input(() => [
     tw`
