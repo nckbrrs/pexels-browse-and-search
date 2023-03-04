@@ -9,7 +9,7 @@ const StyledInput = styled.input(() => [
         p-4
         pl-8
         text-sm
-        text-gray-900
+        text-[#212121]
         border
         border-gray-200
         rounded-lg

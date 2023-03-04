@@ -36,7 +36,7 @@ export const TextPrimary = styled.p(() => [
         font-sans
         text-base
         font-normal
-        text-gray-900
+        text-[#212121]
         dark:text-white
     `
 ])

@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
-import { theme, GlobalStyles as BaseStyles } from 'twin.macro'
+import { GlobalStyles as BaseStyles } from 'twin.macro'
 
 // This method of specifying global styles was recommended/provided by
 // the docs of twin.macro, the library I use for combining tailwind with styled components
@@ -15,7 +15,7 @@ const CustomStyles = createGlobalStyle`
 
     html,
     body {
-      background: ${theme`colors.primary`} !important;
+      background: #212121 !important;
     }
   }
 
@@ -33,7 +33,7 @@ const CustomStyles = createGlobalStyle`
     justify-content: center;
     align-items: center;
     overflow-x: hidden;
-    background: ${theme`colors.background`}
+    background: #fbf6f1;
   }
 
   a {
