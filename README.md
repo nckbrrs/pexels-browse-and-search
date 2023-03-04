@@ -2,6 +2,8 @@
 
 A simple, responsive, single-page NextJS frontend and server to let users browse photos from [Pexels](https://www.pexels.com) with search and pagination.
 
+![Screenshot 2023-03-04 at 4 36 29 PM](https://user-images.githubusercontent.com/22487838/222929685-8e6adfb8-ba35-4d19-89ee-9843f519ab01.png)
+
 You can view this web app on Vercel at https://pexels-project.vercel.app.
 
 It's a NextJS application, so it also uses some serverless functions that wrap the [Pexels API](https://www.pexels.com/api/).
