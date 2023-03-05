@@ -1,18 +1,20 @@
 import { ReactNode } from "react";
 import Header from "./header";
 import Footer from "./footer";
-import { Col } from "./base";
+import { Col, Row } from "./base";
 import "twin.macro";
 
 const Layout: React.FC<{children: ReactNode}> = ({children}) => {
     return (
-        <Col tw="w-screen h-screen items-center justify-between">
-            <Col tw="w-full flex-1 max-w-screen-2xl justify-between px-5 md:px-24 flex-nowrap">
+        <Row tw="min-h-screen justify-center">
+            <Col tw="w-full max-w-screen-2xl justify-between flex-nowrap px-5 md:px-8 lg:px-12">
                 <Header/>
-                {children}
+                <Col tw="h-full justify-start flex-nowrap">
+                    {children}
+                </Col>
                 <Footer/>
             </Col>
-        </Col>
+        </Row>
     )
     
 }

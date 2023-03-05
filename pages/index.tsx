@@ -117,18 +117,17 @@ const Home: React.FC<{initialData: any}> = ({initialData}) => {
       <Head>
         <title>Pexels by Nick Barrs</title>
       </Head>
-      <Col tw="w-full h-full flex-1 justify-start flex-nowrap space-y-2 md:space-y-4">
-        <SearchBar handleSearch={handleSearch}/>
-        <PhotoViewer
-            loading={loadingResults}
-            photos={photosData?.photos}
-            currentPage={currentPage}
-            setCurrentPage={(p) => {
-              setCurrentPage(p); 
-              setCurrentPageInSessionStorage(sessionStorage, p)
-            }}
-          />
-      </Col>
+      <SearchBar handleSearch={handleSearch}/>
+      <div tw="h-2"/>
+      <PhotoViewer
+          loading={loadingResults}
+          photos={photosData?.photos}
+          currentPage={currentPage}
+          setCurrentPage={(p) => {
+            setCurrentPage(p); 
+            setCurrentPageInSessionStorage(sessionStorage, p)
+          }}
+        />
     </>
   )
 }

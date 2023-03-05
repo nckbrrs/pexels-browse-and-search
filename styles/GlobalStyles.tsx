@@ -24,18 +24,11 @@ const CustomStyles = createGlobalStyle`
     padding: 0;
     margin: 0;
   }
-
+  
   html,
   body {
-    min-height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow-x: hidden;
-    background: #fbf6f1;
+    background: #fbf6f1
   }
-
   a {
     color: inherit;
     text-decoration: none;

@@ -12,8 +12,8 @@ const Header: React.FC = () => {
     }
 
     return (
-        <Row tw="w-full justify-between items-center pt-16 pb-4">
-            <Col tw="items-start h-full drop-shadow-sm">
+        <Row tw="justify-between items-center pb-4 pt-8 sm:pt-20">
+            <Col tw="drop-shadow-sm">
                 <TextPrimary tw="text-6xl font-medium font-serif cursor-pointer" onClick={handleClickHeader}>Pexels</TextPrimary>
                 <TextPrimary tw="text-lg font-medium font-serif pl-[2px] cursor-default">by Nick Barrs</TextPrimary>
             </Col>

@@ -26,8 +26,9 @@ const StyledButton = styled.button(() => [
         text-white
         text-sm
         font-medium
+        top-2
+        bottom-2
         right-3
-        bottom-3
         rounded-md
         duration-200
         !bg-indigo-600
@@ -43,7 +44,7 @@ interface SearchBarProps {
 
 const SearchBar: React.FC<SearchBarProps> = ({ handleSearch }) => {
     return (
-        <Row tw="relative p-1">
+        <Row tw="relative px-1">
             <form tw="w-full" onSubmit={handleSearch}>
                 <StyledInput type="search" id="search-input" placeholder="Search for more free photos"></StyledInput>
                 <StyledButton type="submit">Search</StyledButton>
