@@ -8,23 +8,6 @@ You can view this web app on Vercel at https://pexels-project.vercel.app.
 
 It's a NextJS application, so it also uses some serverless functions that wrap the [Pexels API](https://www.pexels.com/api/).
 
-
-# File Structure
-
-A summary of the file/folder structure for this app is as follows.<br/>
-_Note: if you are familiar with React/Next applications, this will be trivial_
-* `components` - individual components / building blocks that are used throughtout the app
-* `pages` - React components that are associated with a specific route
-  * `api/` - files in this folder are treated as API endpoints instead of a `page`
-  * `index.tsx` - the "home screen" of the app that can be found at the path `/`
-  * `404.tsx` - users will see this screen if/when they try to navigate to any route not specific by a `page`
-  * `_app.tsx` - A special file used by NextJS to initialize pages. You can read more about it [here](https://nextjs.org/docs/advanced-features/custom-app)
-  * `_document.tsx` - A special file used by NextJS to update the `html` and `body` tags used to render a `page`. You can read more about it [here](https://nextjs.org/docs/advanced-features/custom-document)
-* `public` - static files, like images and other assets
-* `styles` - global styling
-* `types` - folder used to hold custom `type`s and declare modules used throughout the app
-* other files are for miscellaneous project configuration
-
 # Usage
 
 Download the repository, navigate to the folder's root directory, and run `npm run blastoff` to install dependencies and run the app locally.
