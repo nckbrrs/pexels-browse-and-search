@@ -6,7 +6,7 @@ import SearchBar from '../components/searchBar';
 import PhotoViewer from '../components/photoViewer';
 
 const runAgainstLocalApi = false;
-const SERVER_BASE_PATH = runAgainstLocalApi ? 'http://localhost:3000' : 'https://pexels-project.vercel.app/api'
+const SERVER_BASE_PATH = runAgainstLocalApi ? 'http://localhost:3000' : 'https://pexels-browse-and-search.vercel.app/api'
 
 export async function getStaticProps(): Promise<any> {
   const fetchResponse = await fetch(`${SERVER_BASE_PATH}/curated`, {
